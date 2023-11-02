@@ -1,16 +1,16 @@
-//A função gets() é para simular as entradas de um usuário, cada vez que ela for chamada.
+//Suponto que a quantidade de alunos possa aumentar, teremos mais números sorteados.
+//Melhoramos a lógica do programa, tornando o array dinâmico.
+//Para isso, a primeira posição do array deve ser a quantidade de alunos a sortearem os numeros.
 
-//Criamos uma lista com as entradas
-const entradas = [5, 50, 10, 98, 23];
+let qtdAlunos = 10;
+const entradas = [qtdAlunos, 5, 50, 10, 98, 23, 33, 44, 100, 1, 7]; //agora serão 10 entradas
 
-//criamos um contador de chamadas para a função
 let i = 0;
 
-//a função gets () tem uma variável valor que recebe a lista e posição [i]. Essa posição está guardada na variável i criada acima
 function gets () {
     const valor = entradas[i];
-    i++; //incremento da variável i para que na próxima chamada, ela pegue a posição seguinte (i++)
-    return valor; //retorna o valor encontrado na posição indicada pelo número na variável i.
+    i++; 
+    return valor; 
 }
 
 
