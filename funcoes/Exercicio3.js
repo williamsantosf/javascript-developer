@@ -26,4 +26,4 @@ function valorCompra(precoProduto, formaPgto){
     }
 }
 
-valorCompra(100,1);
+valorCompra(120,1);
