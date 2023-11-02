@@ -1,34 +1,26 @@
 const { gets , print} = require('./funcoes-auxiliares');
-/*
-    Uma sala contem 5 alunos e para cada aluno foi sorteado um número de 1 - 100.
-    Faça um programa que receba os 5 números sorteados para os alunos e mostre o maior número.
-    Dados de entrada: 5, 50, 10, 98, 23. Saída esperada: 98.
-*/
-//Para simular as diversas chamada à função gets, que simula a entrada do usuário, criaremos um laço for para percorrer o array que contém as entradas
 
-//Criamos uma lista vazia para receber as chamadas a função gets()
-const numerosSorteados = [];
+//Vide commit para outra forma. Aqui está uma maneira mais simples.
 
-//Criamos um laço for para chamar 4 vezes a função gets(). Na variavel numeroSorteado guardamos a função, e em seguida com .push, adicionamos 
-//o seu retorno no array vazio criado anteriormente.
-for (let i = 0; i < 5; i++) {
-    const numeroSorteado = gets();
-    numerosSorteados.push(numeroSorteado);
+//const numerosSorteados = []; Não criaremos essa lista vazia com os números sorteados.
+//Para simplificar a lógica:
+
+let maiorValorEncontrado = 0;    //1. criamos a variável maiorValorEncontrado
+
+for (let i = 0; i < 5; i++) {    //2. Utilizamos o laço para chamar a função 4 vz.
+    const numeroSorteado = gets(); //3. Chamada da função
+    if (numeroSorteado > maiorValorEncontrado){ //4. Para cada volta do laço, comparamos o numero encontrado com o que está guardado na variável.
+        maiorValorEncontrado = numeroSorteado; //5. Caso a condição seja verdadeira, atualizamos o valor da variável maiorValorEncontrado.
+    }   //Desse modo, reduzimos a lógica, comparando e armazenando na variavel ao final de cada loop, No final,a  variavel terá guardado o maior valor.
 }
+
+//Eliminamos esse segundo for
 /*
-CRiamos um segundo laço for para percorrer o array criado, com os "inputs", para achar o maior número sorteado.
-Criamos a variavel maiorValor, que vai o numero encontrado pra cada volta do laço.
-em seguida uma condicional if, para comparar o valor encontrado com o último valor encontrado, e caso ele seja maior,
-substituirá o valor da variável. Ao final da execução, teremos o maior valor armazenado na variavel maiorValor.
-*/
-
-let maiorValor = 0;
-
 for (let i = 0; i < numerosSorteados.length; i++) {
     const numeroSorteado = numerosSorteados[i];
     if (numeroSorteado > maiorValor) {
         maiorValor = numeroSorteado;
     } 
 }
-
-print(maiorValor);
+*/
+print(maiorValorEncontrado);
