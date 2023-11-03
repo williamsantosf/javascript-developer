@@ -22,15 +22,26 @@ let maiorPar = null;
 let menorImpar = null;
 
 for (let i = 0; i < quantidadeDeNumeros; i++) {
-  const numeroEncontrado = gets();
-  if (numeroEncontrado % 2 === 0 && numeroEncontrado > maiorPar || maiorPar === null) {
-    maiorPar = numeroEncontrado;
+  const numeroRecebido = gets();
+  
+  if (numeroRecebido % 2 === 0) {
+    if (maiorPar === null || numeroRecebido > maiorPar){
+      maiorPar = numeroRecebido;
+    }
+    
   } else {
-    if (menorImpar === null || numeroEncontrado < menorImpar) {
-      menorImpar = numeroEncontrado;
-    } 
+    if (menorImpar === null || numeroRecebido < menorImpar){
+      menorImpar = numeroRecebido;
+    }
   }
+  
 }
+
+//USAR NO MÁXIMO DUAS CONDIÇÕES EM UM IF, NO CASO DE MAIS UMA, CONCATENAR COM UM PRÓXIMO IF. 
+//Nesse caso um primeiro if pra já criar uma condição para pegar o par e em seguida avaliar o numero par.
+//tudo que não for par é impar, logo, o else tem um if para avaliar o numero impar, umas vez que ele já foi encontrado
+//por estar fora da condição de ser par.
+
 
 //Obs.: Se temos duas situações possíveis, criamos a lógica da primeira e o que não cai nela é um else.
 //dentro do else podemos colocar mais um if, e ir implementando uma outra lógica para tratar o que não caiu na primeira.
@@ -40,5 +51,3 @@ print(`Maior número par é: ${maiorPar}`);
 print(`Menor numero ímpar é: ${menorImpar}`);
 
 
-//OBS.: O código não está funcionando, se substituir o 1 no array por qualquer outro número impar, ele consifdera esse numero o maior.
-//e desconsidera o 3.
