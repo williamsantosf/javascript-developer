@@ -18,19 +18,17 @@ Imprima o maior numero par e o menor numero impar.
 const { gets, print } = require("./funcoes-auxiliares-ex2");
 
 const quantidadeDeNumeros = gets();
-let maiorPar = 0;
-let menorImpar = 0;
+let maiorPar = null;
+let menorImpar = null;
 
 for (let i = 0; i < quantidadeDeNumeros; i++) {
   const numeroEncontrado = gets();
-  if (numeroEncontrado % 2 === 0 && numeroEncontrado > maiorPar) {
+  if (numeroEncontrado % 2 === 0 && numeroEncontrado > maiorPar || maiorPar === null) {
     maiorPar = numeroEncontrado;
   } else {
-    if (menorImpar === 0) {
+    if (menorImpar === null || numeroEncontrado < menorImpar) {
       menorImpar = numeroEncontrado;
-    } else if (numeroEncontrado < menorImpar) {
-      menorImpar = numeroEncontrado;
-    }
+    } 
   }
 }
 
@@ -40,3 +38,7 @@ for (let i = 0; i < quantidadeDeNumeros; i++) {
 
 print(`Maior número par é: ${maiorPar}`);
 print(`Menor numero ímpar é: ${menorImpar}`);
+
+
+//OBS.: O código não está funcionando, se substituir o 1 no array por qualquer outro número impar, ele consifdera esse numero o maior.
+//e desconsidera o 3.
